@@ -1,0 +1,62 @@
+{
+  "name": "clone-and-modify",
+  "version": "0.0.1",
+  "description": "a small utility package to create a new object with only one attributes modified, useful for testing purposes",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "mocha -r ts-node/register test/**/*.spec.ts",
+    "cover": "nyc npm run test"
+  },
+  "engines": {
+    "node": "10.x",
+    "npm": "6.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gaspaonrocks/clone-and-modify.git"
+  },
+  "keywords": [
+    "ramda",
+    "clone",
+    "test"
+  ],
+  "author": "gaspaonrocks",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gaspaonrocks/clone-and-modify/issues"
+  },
+  "homepage": "https://github.com/gaspaonrocks/clone-and-modify#readme",
+  "dependencies": {
+    "@types/node": "^11.10.4",
+    "@types/ramda": "^0.25.51",
+    "ramda": "^0.26.1",
+    "tsc": "^1.20150623.0"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^2.2.48",
+    "chai": "^4.2.0",
+    "coveralls": "^3.0.3",
+    "istanbul": "^0.4.5",
+    "mocha": "^5.2.0",
+    "nyc": "^13.3.0",
+    "supertest": "^3.4.2",
+    "ts-node": "^4.1.0",
+    "typescript": "^3.3.3333"
+  },
+  "nyc": {
+    "require": [
+      "ts-node/register"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "reporter": [
+      "lcov",
+      "text-summary"
+    ],
+    "sourceMap": true,
+    "instrument": true
+  }
+}
