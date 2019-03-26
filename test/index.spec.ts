@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import 'mocha';
 
-import cloneAndModify from '../src';
+import { cloneAndModify } from '../src';
 
 describe('cloneAndModify', () => {
 	it('should return a new object', () => {
