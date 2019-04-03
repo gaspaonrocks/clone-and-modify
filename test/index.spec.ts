@@ -1,12 +1,12 @@
 import { expect } from 'chai';
 import 'mocha';
 
-import { cloneAndModify, deepMerge } from '../src';
+import { cloneAndModify, deepMerge, pathOrDefault } from '../src';
 
 describe('cloneAndModify', () => {
 	it('should return a new object', () => {
 		const testObject = { i: { am: { aValue: 'hello' } } };
-		
+
 		const result = cloneAndModify(testObject, ['i', 'am', 'aValue'], 'goodbye');
 
 		expect(result.i.am.aValue).to.equal('goodbye')
@@ -22,5 +22,31 @@ describe('deepMerge', () => {
 
 		expect(result.i.am.aValue).to.equal('hello');
 		expect(result.i.am.not[0]).to.equal('a value');
+	});
+});
+
+describe('pathOrDefault', () => {
+	it('should return a value at given path', () => {
+		const srcObject = { i: { am: { aValue: 'hello' } } };
+
+		const result = pathOrDefault(srcObject, ['i', 'am', 'aValue'], 'defaultValue');
+
+		expect(result).to.equal('hello');
+	});
+
+	it('should return given default value', () => {
+		const srcObject = { i: { am: { aValue: 'hello' } } };
+
+		const result = pathOrDefault(srcObject, ['i', 'am', 'not'], 'defaultValue');
+
+		expect(result).to.equal('defaultValue');
+	});
+
+	it('should return undefined, no defautl value given', () => {
+		const srcObject = { i: { am: { aValue: 'hello' } } };
+
+		const result = pathOrDefault(srcObject, ['i', 'am', 'not']);
+
+		expect(result).to.equal(undefined);
 	});
 });
