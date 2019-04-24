@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import 'mocha';
 
-import { cloneAndModify, deepMerge, pathOrDefault } from '../src';
+import { cloneAndModify, deepClone, deepMerge, pathOrDefault } from '../src';
 
 describe('cloneAndModify', () => {
 	it('should return a new object', () => {
@@ -42,7 +42,7 @@ describe('pathOrDefault', () => {
 		expect(result).to.equal('defaultValue');
 	});
 
-	it('should return undefined, no defautl value given', () => {
+	it('should return undefined, no default value given', () => {
 		const srcObject = { i: { am: { aValue: 'hello' } } };
 
 		const result = pathOrDefault(srcObject, ['i', 'am', 'not']);
@@ -50,3 +50,7 @@ describe('pathOrDefault', () => {
 		expect(result).to.equal(undefined);
 	});
 });
+
+describe('hasPath', () => {});
+describe('deepClone', () => {});
+describe('setValueAtPath', () => {});
